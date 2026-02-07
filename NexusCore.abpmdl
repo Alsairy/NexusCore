@@ -1,0 +1,109 @@
+{
+  "template": "app",
+  "imports": {
+    "Volo.Abp.LeptonXLiteTheme": {
+      "version": "5.0.2",
+      "isInstalled": true,
+      "creationTime": "02/07/2026 15:39:50 +00:00"
+    },
+    "Volo.Abp.Account": {
+      "version": "10.0.2",
+      "isInstalled": true,
+      "creationTime": "02/07/2026 15:39:50 +00:00"
+    },
+    "Volo.Abp.OpenIddict": {
+      "version": "10.0.2",
+      "isInstalled": true,
+      "creationTime": "02/07/2026 15:39:50 +00:00"
+    },
+    "Volo.Abp.Identity": {
+      "version": "10.0.2",
+      "isInstalled": true,
+      "creationTime": "02/07/2026 15:39:50 +00:00"
+    },
+    "Volo.Abp.TenantManagement": {
+      "version": "10.0.2",
+      "isInstalled": true,
+      "creationTime": "02/07/2026 15:39:50 +00:00"
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "10.0.2",
+      "isInstalled": true,
+      "creationTime": "02/07/2026 15:39:50 +00:00"
+    },
+    "Volo.Abp.PermissionManagement": {
+      "version": "10.0.2",
+      "isInstalled": true,
+      "creationTime": "02/07/2026 15:39:50 +00:00"
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "10.0.2",
+      "isInstalled": true,
+      "creationTime": "02/07/2026 15:39:50 +00:00"
+    }
+  },
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {}
+    }
+  },
+  "packages": {
+    "NexusCore.Application": {
+      "path": "src/NexusCore.Application/NexusCore.Application.abppkg",
+      "folder": "src"
+    },
+    "NexusCore.Application.Tests": {
+      "path": "test/NexusCore.Application.Tests/NexusCore.Application.Tests.abppkg",
+      "folder": "test"
+    },
+    "NexusCore.Domain.Shared": {
+      "path": "src/NexusCore.Domain.Shared/NexusCore.Domain.Shared.abppkg",
+      "folder": "src"
+    },
+    "NexusCore.Application.Contracts": {
+      "path": "src/NexusCore.Application.Contracts/NexusCore.Application.Contracts.abppkg",
+      "folder": "src"
+    },
+    "NexusCore.HttpApi": {
+      "path": "src/NexusCore.HttpApi/NexusCore.HttpApi.abppkg",
+      "folder": "src"
+    },
+    "NexusCore.HttpApi.Client": {
+      "path": "src/NexusCore.HttpApi.Client/NexusCore.HttpApi.Client.abppkg",
+      "folder": "src"
+    },
+    "NexusCore.EntityFrameworkCore.Tests": {
+      "path": "test/NexusCore.EntityFrameworkCore.Tests/NexusCore.EntityFrameworkCore.Tests.abppkg",
+      "folder": "test"
+    },
+    "NexusCore.EntityFrameworkCore": {
+      "path": "src/NexusCore.EntityFrameworkCore/NexusCore.EntityFrameworkCore.abppkg",
+      "folder": "src"
+    },
+    "NexusCore.TestBase": {
+      "path": "test/NexusCore.TestBase/NexusCore.TestBase.abppkg",
+      "folder": "test"
+    },
+    "NexusCore.Domain.Tests": {
+      "path": "test/NexusCore.Domain.Tests/NexusCore.Domain.Tests.abppkg",
+      "folder": "test"
+    },
+    "NexusCore.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/NexusCore.HttpApi.Client.ConsoleTestApp/NexusCore.HttpApi.Client.ConsoleTestApp.abppkg",
+      "folder": "test"
+    },
+    "NexusCore.DbMigrator": {
+      "path": "src/NexusCore.DbMigrator/NexusCore.DbMigrator.abppkg",
+      "folder": "src"
+    },
+    "NexusCore.HttpApi.Host": {
+      "path": "src/NexusCore.HttpApi.Host/NexusCore.HttpApi.Host.abppkg",
+      "folder": "src"
+    },
+    "NexusCore.Domain": {
+      "path": "src/NexusCore.Domain/NexusCore.Domain.abppkg",
+      "folder": "src"
+    }
+  }
+}

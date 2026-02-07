@@ -1,0 +1,11 @@
+services:
+  api:
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      App__DisablePII: "false"
+    volumes:
+      - ./src/NexusCore.HttpApi.Host/appsettings.Development.json:/app/appsettings.Development.json:ro
+
+  angular:
+    volumes:
+      - ./angular/dist/NexusCore/browser:/usr/share/nginx/html:ro

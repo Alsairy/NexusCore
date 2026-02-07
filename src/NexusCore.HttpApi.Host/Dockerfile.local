@@ -1,0 +1,37 @@
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
+WORKDIR /src
+
+# Copy solution and project files for restore
+COPY NexusCore.slnx .
+COPY common.props .
+COPY NuGet.Config .
+COPY src/NexusCore.Domain.Shared/NexusCore.Domain.Shared.csproj src/NexusCore.Domain.Shared/
+COPY src/NexusCore.Domain/NexusCore.Domain.csproj src/NexusCore.Domain/
+COPY src/NexusCore.Application.Contracts/NexusCore.Application.Contracts.csproj src/NexusCore.Application.Contracts/
+COPY src/NexusCore.Application/NexusCore.Application.csproj src/NexusCore.Application/
+COPY src/NexusCore.EntityFrameworkCore/NexusCore.EntityFrameworkCore.csproj src/NexusCore.EntityFrameworkCore/
+COPY src/NexusCore.HttpApi/NexusCore.HttpApi.csproj src/NexusCore.HttpApi/
+COPY src/NexusCore.HttpApi.Host/NexusCore.HttpApi.Host.csproj src/NexusCore.HttpApi.Host/
+COPY src/NexusCore.HttpApi.Client/NexusCore.HttpApi.Client.csproj src/NexusCore.HttpApi.Client/
+COPY src/NexusCore.DbMigrator/NexusCore.DbMigrator.csproj src/NexusCore.DbMigrator/
+
+RUN dotnet restore src/NexusCore.HttpApi.Host/NexusCore.HttpApi.Host.csproj
+
+# Copy all source and publish
+COPY common.props .
+COPY src/ src/
+RUN dotnet publish src/NexusCore.HttpApi.Host/NexusCore.HttpApi.Host.csproj -c Release -o /app/publish --no-restore
+
+# Generate dev certificate for OpenIddict
+RUN dotnet dev-certs https -v -ep /app/publish/openiddict.pfx -p b69116b2-2b27-4274-80a6-3b99f72129ff
+RUN chmod 644 /app/publish/openiddict.pfx
+
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS final
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+
+COPY --from=build /app/publish .
+
+EXPOSE 8080
+ENTRYPOINT ["dotnet", "NexusCore.HttpApi.Host.dll"]

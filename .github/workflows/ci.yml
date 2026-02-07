@@ -1,0 +1,78 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+env:
+  DOTNET_VERSION: '10.0.x'
+  NODE_VERSION: '22'
+
+jobs:
+  backend:
+    name: Backend Build & Test
+    runs-on: ubuntu-latest
+
+    services:
+      sqlserver:
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        env:
+          ACCEPT_EULA: Y
+          SA_PASSWORD: TestPassword@123!
+        ports:
+          - 1433:1433
+        options: >-
+          --health-cmd "/opt/mssql-tools18/bin/sqlcmd -S localhost -U SA -P 'TestPassword@123!' -Q 'SELECT 1' -C"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Restore dependencies
+        run: dotnet restore NexusCore.slnx
+
+      - name: Build
+        run: dotnet build NexusCore.slnx --no-restore --configuration Release
+
+      - name: Run Domain Tests
+        run: dotnet test test/NexusCore.Domain.Tests/ --no-build --configuration Release --verbosity normal
+
+      - name: Run Application Tests
+        run: dotnet test test/NexusCore.Application.Tests/ --no-build --configuration Release --verbosity normal
+
+      - name: Run EF Core Tests
+        run: dotnet test test/NexusCore.EntityFrameworkCore.Tests/ --no-build --configuration Release --verbosity normal
+        env:
+          ConnectionStrings__Default: "Server=localhost;Database=NexusCoreTest;User Id=SA;Password=TestPassword@123!;TrustServerCertificate=true"
+
+  frontend:
+    name: Frontend Build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: angular
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: angular/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Build
+        run: npx ng build --configuration production

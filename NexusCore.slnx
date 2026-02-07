@@ -1,0 +1,23 @@
+<Solution>
+    <Configurations>
+        <Platform Name="Any CPU" />
+    </Configurations>
+    <Folder Name="/src/">
+        <Project Path="src/NexusCore.Domain/NexusCore.Domain.csproj" />
+        <Project Path="src/NexusCore.Application/NexusCore.Application.csproj" />
+        <Project Path="src/NexusCore.EntityFrameworkCore/NexusCore.EntityFrameworkCore.csproj" />
+        <Project Path="src/NexusCore.Domain.Shared/NexusCore.Domain.Shared.csproj" />
+        <Project Path="src/NexusCore.Application.Contracts/NexusCore.Application.Contracts.csproj" />
+        <Project Path="src/NexusCore.HttpApi/NexusCore.HttpApi.csproj" />
+        <Project Path="src/NexusCore.HttpApi.Client/NexusCore.HttpApi.Client.csproj" />
+        <Project Path="src/NexusCore.DbMigrator/NexusCore.DbMigrator.csproj" />
+        <Project Path="src/NexusCore.HttpApi.Host/NexusCore.HttpApi.Host.csproj" />
+    </Folder>
+    <Folder Name="/test/">
+        <Project Path="test/NexusCore.Application.Tests/NexusCore.Application.Tests.csproj" />
+        <Project Path="test/NexusCore.EntityFrameworkCore.Tests/NexusCore.EntityFrameworkCore.Tests.csproj" />
+        <Project Path="test/NexusCore.TestBase/NexusCore.TestBase.csproj" />
+        <Project Path="test/NexusCore.Domain.Tests/NexusCore.Domain.Tests.csproj" />
+        <Project Path="test/NexusCore.HttpApi.Client.ConsoleTestApp/NexusCore.HttpApi.Client.ConsoleTestApp.csproj" />
+    </Folder>
+</Solution>

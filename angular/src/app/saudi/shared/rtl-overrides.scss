@@ -1,0 +1,130 @@
+// RTL overrides for LeptonX Lite theme - Saudi Kit
+// These styles are applied when the document direction is RTL (Arabic)
+
+[dir='rtl'] {
+  // Fix sidebar menu alignment
+  .lp-sidebar {
+    right: 0;
+    left: auto;
+
+    .nav-link {
+      padding-right: 1rem;
+      padding-left: 0;
+
+      .nav-icon {
+        margin-left: 0.5rem;
+        margin-right: 0;
+      }
+    }
+  }
+
+  // Fix breadcrumb separator direction
+  .breadcrumb-item + .breadcrumb-item::before {
+    content: '\f053'; // fa-chevron-left
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 0.65rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  // Fix table text alignment
+  .table {
+    th,
+    td {
+      text-align: right;
+    }
+  }
+
+  // Fix form labels
+  .form-label {
+    text-align: right;
+  }
+
+  // Fix dropdown menus
+  .dropdown-menu {
+    text-align: right;
+  }
+
+  // Fix card actions (buttons on the right)
+  .card-header {
+    .btn-group,
+    .actions {
+      margin-right: auto;
+      margin-left: 0;
+    }
+  }
+
+  // Fix pagination
+  .pagination {
+    .page-item:first-child .page-link {
+      border-top-right-radius: var(--bs-pagination-border-radius);
+      border-bottom-right-radius: var(--bs-pagination-border-radius);
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    .page-item:last-child .page-link {
+      border-top-left-radius: var(--bs-pagination-border-radius);
+      border-bottom-left-radius: var(--bs-pagination-border-radius);
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  // Fix modal close button position
+  .modal-header .btn-close {
+    margin: -0.5rem auto -0.5rem -0.5rem;
+  }
+
+  // Fix toast notifications
+  .toast-container {
+    right: auto;
+    left: 1rem;
+  }
+
+  // Fix input groups
+  .input-group {
+    > .form-control:not(:first-child),
+    > .form-select:not(:first-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-top-left-radius: var(--bs-border-radius);
+      border-bottom-left-radius: var(--bs-border-radius);
+    }
+    > .form-control:not(:last-child),
+    > .form-select:not(:last-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: var(--bs-border-radius);
+      border-bottom-right-radius: var(--bs-border-radius);
+    }
+  }
+
+  // Fix Font Awesome directional icons
+  .fa-chevron-right::before {
+    content: '\f053'; // chevron-left
+  }
+  .fa-chevron-left::before {
+    content: '\f054'; // chevron-right
+  }
+  .fa-arrow-right::before {
+    content: '\f060'; // arrow-left
+  }
+  .fa-arrow-left::before {
+    content: '\f061'; // arrow-right
+  }
+}
+
+// Arabic font improvements
+[lang='ar'],
+[dir='rtl'] {
+  body {
+    font-family: 'Noto Sans Arabic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+    font-weight: 600;
+  }
+}
