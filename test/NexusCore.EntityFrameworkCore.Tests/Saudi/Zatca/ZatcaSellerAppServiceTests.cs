@@ -116,6 +116,9 @@ public class ZatcaSellerAppServiceTests : NexusCoreEntityFrameworkCoreTestBase
         // Verify old seeded seller is no longer default
         var oldSeller = await _sellerAppService.GetAsync(NexusCoreTestData.SellerId);
         oldSeller.IsDefault.ShouldBeFalse();
+
+        // Restore original default to avoid test ordering issues
+        await _sellerAppService.SetDefaultAsync(NexusCoreTestData.SellerId);
     }
 
     [Fact]
