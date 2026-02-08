@@ -12,6 +12,11 @@ export const SAUDI_ROUTES: Routes = [
       import('./onboarding/onboarding-wizard.component').then(c => c.OnboardingWizardComponent),
   },
   {
+    path: 'dashboard',
+    loadComponent: () =>
+      import('./dashboard/saudi-dashboard.component').then(c => c.SaudiDashboardComponent),
+  },
+  {
     path: 'hijri-calendar',
     loadComponent: () =>
       import('./hijri-calendar/hijri-calendar.component').then(c => c.HijriCalendarComponent),

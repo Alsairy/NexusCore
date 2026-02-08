@@ -259,6 +259,36 @@
     "Saudi:Onboarding:Back": "السابق",
     "Saudi:Onboarding:MarkComplete": "وضع علامة مكتمل",
     "Saudi:Onboarding:Reset": "إعادة تعيين الإعداد",
-    "Saudi:Onboarding:ResetConfirm": "هل أنت متأكد من إعادة تعيين تقدم الإعداد؟"
+    "Saudi:Onboarding:ResetConfirm": "هل أنت متأكد من إعادة تعيين تقدم الإعداد؟",
+
+    "Menu:Saudi:Dashboard": "لوحة المعلومات",
+
+    "Saudi:Dashboard:Title": "لوحة معلومات الحزمة السعودية",
+    "Saudi:Dashboard:Subtitle": "نظرة عامة على عمليات الحزمة السعودية",
+    "Saudi:Dashboard:Refresh": "تحديث",
+    "Saudi:Dashboard:TotalInvoices": "إجمالي الفواتير",
+    "Saudi:Dashboard:ClearedInvoices": "الفواتير المعتمدة",
+    "Saudi:Dashboard:RejectedInvoices": "الفواتير المرفوضة",
+    "Saudi:Dashboard:TotalRevenue": "إجمالي الإيرادات (ر.س)",
+    "Saudi:Dashboard:TotalVat": "إجمالي الضريبة",
+    "Saudi:Dashboard:MonthlyVolume": "حجم الفواتير الشهري",
+    "Saudi:Dashboard:InvoiceCount": "عدد الفواتير",
+    "Saudi:Dashboard:WithRevenue": "مع إيرادات",
+    "Saudi:Dashboard:NoData": "لا توجد بيانات متاحة",
+    "Saudi:Dashboard:NafathStats": "إحصائيات نفاذ",
+    "Saudi:Dashboard:TotalAuths": "إجمالي المصادقات",
+    "Saudi:Dashboard:Completed": "مكتملة",
+    "Saudi:Dashboard:Expired": "منتهية الصلاحية",
+    "Saudi:Dashboard:LinkedUsers": "المستخدمون المرتبطون",
+    "Saudi:Dashboard:ApprovalStats": "إحصائيات الموافقات",
+    "Saudi:Dashboard:PendingApprovals": "الموافقات المعلقة",
+    "Saudi:Dashboard:ApprovedThisMonth": "الموافقات هذا الشهر",
+    "Saudi:Dashboard:RejectedThisMonth": "المرفوضات هذا الشهر",
+    "Saudi:Dashboard:SystemHealth": "صحة النظام",
+    "Saudi:Dashboard:ZatcaApi": "واجهة زاتكا",
+    "Saudi:Dashboard:NafathApi": "واجهة نفاذ",
+    "Saudi:Dashboard:LastSubmission": "آخر إرسال",
+    "Saudi:Dashboard:RecentActivity": "النشاط الأخير",
+    "Saudi:Dashboard:NoRecentActivity": "لا يوجد نشاط حديث"
   }
 }

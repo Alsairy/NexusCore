@@ -226,6 +226,36 @@
     "Saudi:Onboarding:Back": "Back",
     "Saudi:Onboarding:MarkComplete": "Mark as Complete",
     "Saudi:Onboarding:Reset": "Reset Onboarding",
-    "Saudi:Onboarding:ResetConfirm": "Are you sure you want to reset the onboarding progress?"
+    "Saudi:Onboarding:ResetConfirm": "Are you sure you want to reset the onboarding progress?",
+
+    "Menu:Saudi:Dashboard": "Dashboard",
+
+    "Saudi:Dashboard:Title": "Saudi Kit Dashboard",
+    "Saudi:Dashboard:Subtitle": "Overview of your Saudi Kit operations",
+    "Saudi:Dashboard:Refresh": "Refresh",
+    "Saudi:Dashboard:TotalInvoices": "Total Invoices",
+    "Saudi:Dashboard:ClearedInvoices": "Cleared Invoices",
+    "Saudi:Dashboard:RejectedInvoices": "Rejected Invoices",
+    "Saudi:Dashboard:TotalRevenue": "Total Revenue (SAR)",
+    "Saudi:Dashboard:TotalVat": "Total VAT",
+    "Saudi:Dashboard:MonthlyVolume": "Monthly Invoice Volume",
+    "Saudi:Dashboard:InvoiceCount": "Invoice Count",
+    "Saudi:Dashboard:WithRevenue": "With Revenue",
+    "Saudi:Dashboard:NoData": "No data available",
+    "Saudi:Dashboard:NafathStats": "Nafath Statistics",
+    "Saudi:Dashboard:TotalAuths": "Total Authentications",
+    "Saudi:Dashboard:Completed": "Completed",
+    "Saudi:Dashboard:Expired": "Expired",
+    "Saudi:Dashboard:LinkedUsers": "Linked Users",
+    "Saudi:Dashboard:ApprovalStats": "Approval Statistics",
+    "Saudi:Dashboard:PendingApprovals": "Pending Approvals",
+    "Saudi:Dashboard:ApprovedThisMonth": "Approved This Month",
+    "Saudi:Dashboard:RejectedThisMonth": "Rejected This Month",
+    "Saudi:Dashboard:SystemHealth": "System Health",
+    "Saudi:Dashboard:ZatcaApi": "ZATCA API",
+    "Saudi:Dashboard:NafathApi": "Nafath API",
+    "Saudi:Dashboard:LastSubmission": "Last Submission",
+    "Saudi:Dashboard:RecentActivity": "Recent Activity",
+    "Saudi:Dashboard:NoRecentActivity": "No recent activity"
   }
 }
