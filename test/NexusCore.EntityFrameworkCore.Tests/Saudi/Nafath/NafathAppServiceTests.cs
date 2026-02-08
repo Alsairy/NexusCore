@@ -53,4 +53,29 @@ public class NafathAppServiceTests : NexusCoreEntityFrameworkCoreTestBase
             () => _nafathAppService.CheckStatusAsync(
                 new NafathCheckStatusInput { TransactionId = "NON-EXISTENT-TXN" }));
     }
+
+    [Fact]
+    public async Task GetMyLink_Should_Return_Null_For_User_Without_Link()
+    {
+        // The fake admin user from FakeCurrentPrincipalAccessor does NOT have a Nafath link
+        // (the seeded link belongs to NafathLinkedUserId, not the fake admin)
+        var result = await _nafathAppService.GetMyLinkAsync();
+
+        // Should return null since the fake admin has no linked identity
+        result.ShouldBeNull();
+    }
+
+    [Fact]
+    public async Task CheckStatus_Completed_Should_Return_UserId()
+    {
+        var result = await _nafathAppService.CheckStatusAsync(
+            new NafathCheckStatusInput
+            {
+                TransactionId = NexusCoreTestData.NafathCompletedTransactionId
+            });
+
+        result.ShouldNotBeNull();
+        result.UserId.ShouldBe(NexusCoreTestData.NafathLinkedUserId);
+        result.CompletedAt.ShouldNotBeNull();
+    }
 }
