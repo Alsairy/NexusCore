@@ -114,13 +114,6 @@ public class ZatcaSellerAppService : NexusCoreAppService, IZatcaSellerAppService
         seller.City = input.City;
         seller.PostalCode = input.PostalCode;
         seller.CountryCode = input.CountryCode;
-        seller.IsDefault = input.IsDefault;
-
-        // If this seller is being set as default, unset all others
-        if (seller.IsDefault)
-        {
-            await UnsetAllDefaultSellersAsync(id);
-        }
 
         await _sellerRepository.UpdateAsync(seller);
         await CurrentUnitOfWork!.SaveChangesAsync();
