@@ -76,3 +76,6 @@ jobs:
 
       - name: Build
         run: npx ng build --configuration production
+
+      - name: Run tests
+        run: npx ng test --watch=false --browsers=ChromeHeadless

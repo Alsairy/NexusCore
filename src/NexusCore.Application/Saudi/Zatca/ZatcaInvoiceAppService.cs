@@ -293,7 +293,7 @@ public class ZatcaInvoiceAppService : NexusCoreAppService, IZatcaInvoiceAppServi
         }
 
         // Use the domain manager to prepare (validate, QR, XML, sign, hash)
-        invoice = await _invoiceManager.PrepareInvoiceForSubmissionAsync(invoice, certificate);
+        invoice = _invoiceManager.PrepareInvoiceForSubmission(invoice, certificate);
 
         // Submit to ZATCA API based on invoice type
         var isSimplified = invoice.InvoiceType == ZatcaInvoiceType.Simplified

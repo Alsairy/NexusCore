@@ -46,8 +46,7 @@ public class NafathAuthManager : DomainService
         var transactionId = Guid.NewGuid().ToString();
 
         // Generate random number (0-99)
-        var random = new Random();
-        var randomNumber = random.Next(0, NafathConsts.RandomNumberMaxValue + 1);
+        var randomNumber = Random.Shared.Next(0, NafathConsts.RandomNumberMaxValue + 1);
 
         // Get timeout from settings
         var timeoutSeconds = await _settingProvider.GetAsync<int>(
