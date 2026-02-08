@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using NexusCore.Saudi;
 using NexusCore.Saudi.Nafath;
+using NexusCore.Saudi.Onboarding;
 using NexusCore.Saudi.Workflows;
 using NexusCore.Saudi.Zatca;
 using Volo.Abp;
@@ -121,6 +122,15 @@ public static class NexusCoreDbContextConfigureSaudiKit
 
             b.HasIndex(x => new { x.TenantId, x.DelegatorUserId, x.IsActive });
             b.HasIndex(x => new { x.TenantId, x.DelegateUserId, x.IsActive });
+        });
+
+        // --- Tenant Onboarding Status ---
+        builder.Entity<TenantOnboardingStatus>(b =>
+        {
+            b.ToTable(SaudiConsts.DbTablePrefix + "TenantOnboardingStatuses", SaudiConsts.DbSchema);
+            b.ConfigureByConvention();
+
+            b.HasIndex(x => x.TenantId).IsUnique();
         });
 
         // --- Approval Task ---
