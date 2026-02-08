@@ -54,6 +54,34 @@ jobs:
         env:
           ConnectionStrings__Default: "Server=localhost;Database=NexusCoreTest;User Id=SA;Password=TestPassword@123!;TrustServerCertificate=true"
 
+      - name: Run Integration Tests (offline only)
+        run: dotnet test test/NexusCore.Integration.Tests/ --no-build --configuration Release --verbosity normal --filter "Category!=Integration"
+
+  integration:
+    name: ZATCA Sandbox Integration Tests
+    runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.message, '[integration]')
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Restore dependencies
+        run: dotnet restore NexusCore.slnx
+
+      - name: Build
+        run: dotnet build NexusCore.slnx --no-restore --configuration Release
+
+      - name: Run ZATCA Sandbox Tests
+        run: dotnet test test/NexusCore.Integration.Tests/ --no-build --configuration Release --verbosity normal --filter "Category=Integration"
+        env:
+          ZATCA_Zatca__Sandbox__ComplianceCsid: ${{ secrets.ZATCA_COMPLIANCE_CSID }}
+          ZATCA_Zatca__Sandbox__Secret: ${{ secrets.ZATCA_SECRET }}
+
   frontend:
     name: Frontend Build
     runs-on: ubuntu-latest
