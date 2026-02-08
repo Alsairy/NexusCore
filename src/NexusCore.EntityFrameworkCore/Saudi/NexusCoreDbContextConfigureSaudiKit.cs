@@ -19,6 +19,7 @@ public static class NexusCoreDbContextConfigureSaudiKit
         {
             b.ToTable(SaudiConsts.DbTablePrefix + "ZatcaSellers", SaudiConsts.DbSchema);
             b.ConfigureByConvention();
+            b.Property(x => x.Id).ValueGeneratedNever();
 
             b.Property(x => x.SellerNameAr).IsRequired().HasMaxLength(ZatcaConsts.MaxSellerNameLength);
             b.Property(x => x.SellerNameEn).HasMaxLength(ZatcaConsts.MaxSellerNameLength);
