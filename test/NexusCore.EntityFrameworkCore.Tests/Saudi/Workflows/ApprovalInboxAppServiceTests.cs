@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using NexusCore.EntityFrameworkCore;
 using NexusCore.Saudi.Workflows;
 using Shouldly;
+using Volo.Abp;
 using Xunit;
 
 namespace NexusCore.Saudi.Tests.Workflows;
@@ -105,5 +106,70 @@ public class ApprovalInboxAppServiceTests : NexusCoreEntityFrameworkCoreTestBase
         result.Status.ShouldBe(ApprovalStatus.Rejected);
         result.Comment.ShouldBe("Rejected via test");
         result.CompletedByUserId.ShouldBe(fakeAdminId);
+    }
+
+    [Fact]
+    public async Task Approve_Already_Completed_Task_Should_Throw()
+    {
+        var fakeAdminId = Guid.Parse("2e701e62-0953-4dd3-910b-dc6cc93ccb0d");
+        var workflowManager = GetRequiredService<NexusCore.Saudi.Workflows.Services.ApprovalWorkflowManager>();
+
+        // Create and approve a task first
+        var task = await WithUnitOfWorkAsync(async () =>
+            await workflowManager.CreateTaskAsync(
+                "WF-TEST-DOUBLE",
+                "Test Double Approve",
+                fakeAdminId,
+                description: "Task to test double approve"));
+
+        await _approvalInboxAppService.ApproveAsync(
+            new ApproveRejectInput { TaskId = task.Id, Comment = "First approval" });
+
+        // Attempting to approve again should throw
+        await Should.ThrowAsync<BusinessException>(
+            () => _approvalInboxAppService.ApproveAsync(
+                new ApproveRejectInput { TaskId = task.Id, Comment = "Second approval" }));
+    }
+
+    [Fact]
+    public async Task Reject_Already_Completed_Task_Should_Throw()
+    {
+        var fakeAdminId = Guid.Parse("2e701e62-0953-4dd3-910b-dc6cc93ccb0d");
+        var workflowManager = GetRequiredService<NexusCore.Saudi.Workflows.Services.ApprovalWorkflowManager>();
+
+        // Create and reject a task first
+        var task = await WithUnitOfWorkAsync(async () =>
+            await workflowManager.CreateTaskAsync(
+                "WF-TEST-DOUBLE-REJ",
+                "Test Double Reject",
+                fakeAdminId,
+                description: "Task to test double reject"));
+
+        await _approvalInboxAppService.RejectAsync(
+            new ApproveRejectInput { TaskId = task.Id, Comment = "First rejection" });
+
+        // Attempting to reject again should throw
+        await Should.ThrowAsync<BusinessException>(
+            () => _approvalInboxAppService.RejectAsync(
+                new ApproveRejectInput { TaskId = task.Id, Comment = "Second rejection" }));
+    }
+
+    [Fact]
+    public async Task GetMyTasks_With_Date_Filter_Should_Work()
+    {
+        var result = await _approvalInboxAppService.GetMyTasksAsync(
+            new GetApprovalTaskListInput
+            {
+                DateFrom = DateTime.UtcNow.AddDays(-30),
+                DateTo = DateTime.UtcNow.AddDays(1),
+                MaxResultCount = 10
+            });
+
+        result.ShouldNotBeNull();
+        // All returned items should be within the date range
+        foreach (var item in result.Items)
+        {
+            item.CreationTime.ShouldBeGreaterThanOrEqualTo(DateTime.UtcNow.AddDays(-30));
+        }
     }
 }
