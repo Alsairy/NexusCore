@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System.Linq;
+using Microsoft.Extensions.DependencyInjection;
+using NexusCore.Saudi;
 using Volo.Abp;
 using Volo.Abp.Authorization;
 using Volo.Abp.Autofac;
@@ -26,6 +28,12 @@ public class NexusCoreTestBaseModule : AbpModule
         });
 
         context.Services.AddAlwaysAllowAuthorization();
+
+        var descriptors = context.Services
+            .Where(s => s.ImplementationType == typeof(SaudiKitDataSeederContributor))
+            .ToList();
+        foreach (var descriptor in descriptors)
+            context.Services.Remove(descriptor);
     }
 
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
