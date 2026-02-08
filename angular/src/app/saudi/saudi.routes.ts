@@ -124,4 +124,9 @@ export const SAUDI_ROUTES: Routes = [
       },
     ],
   },
+  {
+    path: 'audit',
+    loadComponent: () =>
+      import('./audit/saudi-audit-log.component').then(c => c.SaudiAuditLogComponent),
+  },
 ];

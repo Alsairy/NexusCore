@@ -256,6 +256,34 @@
     "Saudi:Dashboard:NafathApi": "Nafath API",
     "Saudi:Dashboard:LastSubmission": "Last Submission",
     "Saudi:Dashboard:RecentActivity": "Recent Activity",
-    "Saudi:Dashboard:NoRecentActivity": "No recent activity"
+    "Saudi:Dashboard:NoRecentActivity": "No recent activity",
+
+    "Menu:Saudi:Audit": "Audit Log",
+
+    "Saudi:Audit:Title": "Saudi Kit Audit Log",
+    "Saudi:Audit:Refresh": "Refresh",
+    "Saudi:Audit:ExportCsv": "Export CSV",
+    "Saudi:Audit:StartDate": "Start Date",
+    "Saudi:Audit:EndDate": "End Date",
+    "Saudi:Audit:Module": "Module",
+    "Saudi:Audit:AllModules": "All Modules",
+    "Saudi:Audit:EntityId": "Entity ID",
+    "Saudi:Audit:MinDuration": "Min Duration (ms)",
+    "Saudi:Audit:ClearFilters": "Clear Filters",
+    "Saudi:Audit:Timestamp": "Timestamp",
+    "Saudi:Audit:User": "User",
+    "Saudi:Audit:Action": "Action",
+    "Saudi:Audit:HttpMethod": "Method",
+    "Saudi:Audit:Url": "URL",
+    "Saudi:Audit:Duration": "Duration",
+    "Saudi:Audit:Status": "Status",
+    "Saudi:Audit:RequestDetails": "Request Details",
+    "Saudi:Audit:EntityChanges": "Entity Changes",
+    "Saudi:Audit:NoEntityChanges": "No entity changes recorded",
+    "Saudi:Audit:NoResults": "No audit entries found",
+    "Saudi:Audit:Showing": "Showing",
+    "Saudi:Audit:Of": "of",
+    "Saudi:Audit:EntityHistory": "Entity History",
+    "Saudi:Audit:ViewHistory": "View History"
   }
 }
