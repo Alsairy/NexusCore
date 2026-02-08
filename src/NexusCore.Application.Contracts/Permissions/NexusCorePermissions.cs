@@ -28,6 +28,14 @@ public static class NexusCorePermissions
         public const string ManageSettings = GroupName + ".ManageSettings";
     }
 
+    public static class Onboarding
+    {
+        public const string GroupName = NexusCorePermissions.GroupName + ".Onboarding";
+
+        public const string View = GroupName + ".View";
+        public const string Reset = GroupName + ".Reset";
+    }
+
     public static class Workflows
     {
         public const string GroupName = NexusCorePermissions.GroupName + ".Workflows";

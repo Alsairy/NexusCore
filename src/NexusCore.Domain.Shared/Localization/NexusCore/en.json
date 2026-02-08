@@ -193,6 +193,54 @@
     "Saudi:Workflows:NoDelegations": "No delegations found",
     "Saudi:Workflows:ConfirmDeleteDelegation": "Are you sure you want to delete this delegation?",
 
+    "Permission:Onboarding": "Onboarding",
+    "Permission:Onboarding:View": "View Onboarding Status",
+    "Permission:Onboarding:Reset": "Reset Onboarding",
+
+    "Menu:Saudi:Onboarding": "Getting Started",
+
+    "Saudi:Onboarding:Title": "Saudi Kit Setup Wizard",
+    "Saudi:Onboarding:Subtitle": "Complete these steps to start using the Saudi Kit",
+    "Saudi:Onboarding:Welcome:Title": "Welcome to Saudi Kit",
+    "Saudi:Onboarding:Welcome:Description": "Saudi Kit provides ZATCA e-invoicing, Nafath SSO, and approval workflows for your Saudi business operations. Complete the setup wizard to get started.",
+    "Saudi:Onboarding:Welcome:GetStarted": "Get Started",
+
+    "Saudi:Onboarding:Step1:Title": "Configure ZATCA",
+    "Saudi:Onboarding:Step1:Description": "Set up your ZATCA API credentials to connect to the e-invoicing platform",
+    "Saudi:Onboarding:Step1:TestConnection": "Test Connection",
+    "Saudi:Onboarding:Step1:ConnectionSuccess": "ZATCA connection successful",
+    "Saudi:Onboarding:Step1:ConnectionFailed": "ZATCA connection failed",
+
+    "Saudi:Onboarding:Step2:Title": "Create Seller",
+    "Saudi:Onboarding:Step2:Description": "Add your business as a seller with Arabic name, VAT number, and address",
+
+    "Saudi:Onboarding:Step3:Title": "Upload Certificate",
+    "Saudi:Onboarding:Step3:Description": "Upload your ZATCA compliance certificate (PEM format)",
+    "Saudi:Onboarding:Step3:CertificateDetails": "Certificate Details",
+    "Saudi:Onboarding:Step3:Issuer": "Issuer",
+    "Saudi:Onboarding:Step3:Expiry": "Expiry",
+    "Saudi:Onboarding:Step3:Subject": "Subject",
+
+    "Saudi:Onboarding:Step4:Title": "Submit First Invoice",
+    "Saudi:Onboarding:Step4:Description": "Create and submit a test invoice to the ZATCA sandbox",
+    "Saudi:Onboarding:Step4:QuickCreate": "Quick Create Invoice",
+
+    "Saudi:Onboarding:Step5:Title": "Configure Nafath (Optional)",
+    "Saudi:Onboarding:Step5:Description": "Set up Nafath SSO for national identity authentication",
+
+    "Saudi:Onboarding:Complete:Title": "Setup Complete!",
+    "Saudi:Onboarding:Complete:Description": "Your Saudi Kit is ready. You can now manage invoices, certificates, and workflows.",
+    "Saudi:Onboarding:Complete:GoToDashboard": "Go to Dashboard",
+
+    "Saudi:Onboarding:Progress": "Progress",
+    "Saudi:Onboarding:StepsCompleted": "{0} of {1} steps completed",
+    "Saudi:Onboarding:Skip": "Skip",
+    "Saudi:Onboarding:Next": "Next",
+    "Saudi:Onboarding:Back": "Back",
+    "Saudi:Onboarding:MarkComplete": "Mark as Complete",
+    "Saudi:Onboarding:Reset": "Reset Onboarding",
+    "Saudi:Onboarding:ResetConfirm": "Are you sure you want to reset the onboarding progress?",
+
     "Saudi:Settings": "Saudi Settings",
     "Saudi:Settings:ZatcaSettings": "ZATCA Settings",
     "Saudi:Settings:NafathSettings": "Nafath Settings",

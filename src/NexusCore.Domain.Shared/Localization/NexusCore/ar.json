@@ -226,6 +226,54 @@
     "Saudi:Workflows:NoDelegations": "لا توجد تفويضات",
     "Saudi:Workflows:ConfirmDeleteDelegation": "هل أنت متأكد من حذف هذا التفويض؟",
 
+    "Permission:Onboarding": "معالج الإعداد",
+    "Permission:Onboarding:View": "عرض حالة الإعداد",
+    "Permission:Onboarding:Reset": "إعادة تعيين الإعداد",
+
+    "Menu:Saudi:Onboarding": "البدء السريع",
+
+    "Saudi:Onboarding:Title": "معالج إعداد الحزمة السعودية",
+    "Saudi:Onboarding:Subtitle": "أكمل هذه الخطوات لبدء استخدام الحزمة السعودية",
+    "Saudi:Onboarding:Welcome:Title": "مرحباً بكم في الحزمة السعودية",
+    "Saudi:Onboarding:Welcome:Description": "توفر الحزمة السعودية الفوترة الإلكترونية (زاتكا) وتسجيل الدخول بنفاذ وسير عمل الموافقات لعملياتك التجارية السعودية. أكمل معالج الإعداد للبدء.",
+    "Saudi:Onboarding:Welcome:GetStarted": "ابدأ الآن",
+
+    "Saudi:Onboarding:Step1:Title": "إعداد زاتكا",
+    "Saudi:Onboarding:Step1:Description": "قم بتهيئة بيانات اعتماد زاتكا للاتصال بمنصة الفوترة الإلكترونية",
+    "Saudi:Onboarding:Step1:TestConnection": "اختبار الاتصال",
+    "Saudi:Onboarding:Step1:ConnectionSuccess": "تم الاتصال بزاتكا بنجاح",
+    "Saudi:Onboarding:Step1:ConnectionFailed": "فشل الاتصال بزاتكا",
+
+    "Saudi:Onboarding:Step2:Title": "إنشاء بائع",
+    "Saudi:Onboarding:Step2:Description": "أضف بيانات منشأتك كبائع مع الاسم العربي والرقم الضريبي والعنوان",
+
+    "Saudi:Onboarding:Step3:Title": "رفع الشهادة",
+    "Saudi:Onboarding:Step3:Description": "قم برفع شهادة الامتثال من زاتكا (بصيغة PEM)",
+    "Saudi:Onboarding:Step3:CertificateDetails": "تفاصيل الشهادة",
+    "Saudi:Onboarding:Step3:Issuer": "الجهة المصدرة",
+    "Saudi:Onboarding:Step3:Expiry": "تاريخ الانتهاء",
+    "Saudi:Onboarding:Step3:Subject": "الموضوع",
+
+    "Saudi:Onboarding:Step4:Title": "إرسال أول فاتورة",
+    "Saudi:Onboarding:Step4:Description": "قم بإنشاء وإرسال فاتورة تجريبية إلى بيئة زاتكا التجريبية",
+    "Saudi:Onboarding:Step4:QuickCreate": "إنشاء فاتورة سريعة",
+
+    "Saudi:Onboarding:Step5:Title": "إعداد نفاذ (اختياري)",
+    "Saudi:Onboarding:Step5:Description": "قم بإعداد تسجيل الدخول بنفاذ للمصادقة بالهوية الوطنية",
+
+    "Saudi:Onboarding:Complete:Title": "اكتمل الإعداد!",
+    "Saudi:Onboarding:Complete:Description": "الحزمة السعودية جاهزة. يمكنك الآن إدارة الفواتير والشهادات وسير عمل الموافقات.",
+    "Saudi:Onboarding:Complete:GoToDashboard": "الذهاب إلى لوحة التحكم",
+
+    "Saudi:Onboarding:Progress": "التقدم",
+    "Saudi:Onboarding:StepsCompleted": "{0} من {1} خطوات مكتملة",
+    "Saudi:Onboarding:Skip": "تخطي",
+    "Saudi:Onboarding:Next": "التالي",
+    "Saudi:Onboarding:Back": "السابق",
+    "Saudi:Onboarding:MarkComplete": "وضع علامة مكتمل",
+    "Saudi:Onboarding:Reset": "إعادة تعيين الإعداد",
+    "Saudi:Onboarding:ResetConfirm": "هل أنت متأكد من إعادة تعيين تقدم الإعداد؟",
+
     "Saudi:Settings": "الإعدادات السعودية",
     "Saudi:Settings:ZatcaSettings": "إعدادات زاتكا",
     "Saudi:Settings:NafathSettings": "إعدادات نفاذ",

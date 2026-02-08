@@ -58,7 +58,7 @@ jobs:
         run: dotnet test test/NexusCore.Integration.Tests/ --no-build --configuration Release --verbosity normal --filter "Category!=Integration"
 
   integration:
-    name: ZATCA Sandbox Integration Tests
+    name: Sandbox Integration Tests (ZATCA + Nafath)
     runs-on: ubuntu-latest
     if: contains(github.event.head_commit.message, '[integration]')
 
@@ -76,11 +76,13 @@ jobs:
       - name: Build
         run: dotnet build NexusCore.slnx --no-restore --configuration Release
 
-      - name: Run ZATCA Sandbox Tests
+      - name: Run Sandbox Integration Tests
         run: dotnet test test/NexusCore.Integration.Tests/ --no-build --configuration Release --verbosity normal --filter "Category=Integration"
         env:
           ZATCA_Zatca__Sandbox__ComplianceCsid: ${{ secrets.ZATCA_COMPLIANCE_CSID }}
           ZATCA_Zatca__Sandbox__Secret: ${{ secrets.ZATCA_SECRET }}
+          NAFATH_Nafath__Sandbox__AppId: ${{ secrets.NAFATH_APP_ID }}
+          NAFATH_Nafath__Sandbox__AppKey: ${{ secrets.NAFATH_APP_KEY }}
 
   frontend:
     name: Frontend Build

@@ -53,6 +53,18 @@ public class NexusCorePermissionDefinitionProvider : PermissionDefinitionProvide
             NexusCorePermissions.Nafath.ManageSettings, L("Permission:Nafath:ManageSettings"),
             multiTenancySide: MultiTenancySides.Tenant);
 
+        // --- Onboarding ---
+        var onboardingGroup = context.AddGroup(
+            NexusCorePermissions.Onboarding.GroupName,
+            L("Permission:Onboarding"));
+
+        onboardingGroup.AddPermission(
+            NexusCorePermissions.Onboarding.View, L("Permission:Onboarding:View"),
+            multiTenancySide: MultiTenancySides.Tenant);
+        onboardingGroup.AddPermission(
+            NexusCorePermissions.Onboarding.Reset, L("Permission:Onboarding:Reset"),
+            multiTenancySide: MultiTenancySides.Tenant);
+
         // --- Approval Workflows ---
         var workflowsGroup = context.AddGroup(
             NexusCorePermissions.Workflows.GroupName,

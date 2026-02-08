@@ -4,7 +4,12 @@ export const SAUDI_ROUTES: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'hijri-calendar',
+    redirectTo: 'onboarding',
+  },
+  {
+    path: 'onboarding',
+    loadComponent: () =>
+      import('./onboarding/onboarding-wizard.component').then(c => c.OnboardingWizardComponent),
   },
   {
     path: 'hijri-calendar',

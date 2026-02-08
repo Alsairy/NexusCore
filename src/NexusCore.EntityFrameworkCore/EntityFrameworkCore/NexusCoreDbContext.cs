@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using NexusCore.Saudi.Nafath;
+using NexusCore.Saudi.Onboarding;
 using NexusCore.Saudi.Workflows;
 using NexusCore.Saudi.Zatca;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
@@ -38,6 +39,7 @@ public class NexusCoreDbContext :
     public DbSet<NafathUserLink> NafathUserLinks { get; set; }
     public DbSet<ApprovalDelegation> ApprovalDelegations { get; set; }
     public DbSet<ApprovalTask> ApprovalTasks { get; set; }
+    public DbSet<TenantOnboardingStatus> TenantOnboardingStatuses { get; set; }
 
     #endregion
 
