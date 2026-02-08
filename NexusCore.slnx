@@ -19,5 +19,6 @@
         <Project Path="test/NexusCore.TestBase/NexusCore.TestBase.csproj" />
         <Project Path="test/NexusCore.Domain.Tests/NexusCore.Domain.Tests.csproj" />
         <Project Path="test/NexusCore.HttpApi.Client.ConsoleTestApp/NexusCore.HttpApi.Client.ConsoleTestApp.csproj" />
+        <Project Path="test/NexusCore.Integration.Tests/NexusCore.Integration.Tests.csproj" />
     </Folder>
 </Solution>
