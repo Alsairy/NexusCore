@@ -113,6 +113,76 @@
   .fa-arrow-left::before {
     content: '\f061'; // arrow-right
   }
+
+  // Saudi Kit — Invoice detail layout
+  .invoice-header {
+    flex-direction: row-reverse;
+  }
+
+  .invoice-seller-buyer {
+    .row {
+      flex-direction: row-reverse;
+    }
+  }
+
+  // Saudi Kit — QR code alignment (push QR to left in RTL)
+  .qr-section,
+  .zatca-qr-code {
+    text-align: left;
+  }
+
+  // Saudi Kit — Status badges spacing
+  .badge + .badge {
+    margin-right: 0.25rem;
+    margin-left: 0;
+  }
+
+  // Saudi Kit — Invoice lines table numeric columns
+  .saudi-invoice-lines {
+    td:nth-child(n+3) {
+      text-align: left; // Numbers stay left-aligned in RTL
+    }
+    th:nth-child(n+3) {
+      text-align: left;
+    }
+  }
+
+  // Saudi Kit — Dual calendar picker layout
+  .dual-calendar-picker .row {
+    flex-direction: row-reverse;
+  }
+
+  // Saudi Kit — Nafath login flow
+  .nafath-step-indicator {
+    direction: ltr; // Progress steps stay LTR for visual consistency
+  }
+
+  // Saudi Kit — Settings tabs
+  .nav-tabs {
+    .nav-item + .nav-item {
+      margin-right: 0.25rem;
+      margin-left: 0;
+    }
+  }
+
+  // Saudi Kit — Certificate management
+  .certificate-actions {
+    text-align: left;
+  }
+
+  // Saudi Kit — Approval inbox comment section
+  .approval-comment-row {
+    text-align: right;
+
+    .btn-group {
+      flex-direction: row-reverse;
+    }
+  }
+
+  // Saudi Kit — Delegation form date fields
+  .delegation-dates .row {
+    flex-direction: row-reverse;
+  }
 }
 
 // Arabic font improvements
@@ -125,6 +195,19 @@
   h1, h2, h3, h4, h5, h6,
   .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+    font-weight: 600;
+  }
+
+  // Saudi Kit — Hijri date display
+  .hijri-display {
+    font-family: 'Noto Sans Arabic', 'Amiri', serif;
+    font-size: 1.05em;
+    letter-spacing: 0;
+  }
+
+  // Saudi Kit — Invoice totals section
+  .invoice-totals {
+    font-family: 'Noto Sans Arabic', sans-serif;
     font-weight: 600;
   }
 }
