@@ -37,20 +37,7 @@ public class NafathApiClient : ITransientDependency
     /// <returns>Transaction ID and random number from Nafath</returns>
     public async Task<NafathInitiateResponse> InitiateAuthAsync(string nationalId)
     {
-        var appId = await _settingProvider.GetOrNullAsync(NexusCoreSettings.Saudi.Nafath.AppId);
-        var appKey = await _settingProvider.GetOrNullAsync(NexusCoreSettings.Saudi.Nafath.AppKey);
-        var apiBaseUrl = await _settingProvider.GetOrNullAsync(NexusCoreSettings.Saudi.Nafath.ApiBaseUrl);
-
-        if (string.IsNullOrWhiteSpace(appId) || string.IsNullOrWhiteSpace(appKey) || string.IsNullOrWhiteSpace(apiBaseUrl))
-        {
-            throw new BusinessException("NexusCore:NafathNotConfigured")
-                .WithData("Message", "Nafath settings are not properly configured");
-        }
-
-        var client = _httpClientFactory.CreateClient("NafathApi");
-        client.BaseAddress = new Uri(apiBaseUrl);
-        client.DefaultRequestHeaders.Add("AppId", appId);
-        client.DefaultRequestHeaders.Add("AppKey", appKey);
+        var client = await CreateConfiguredClientAsync();
 
         var request = new
         {
@@ -97,20 +84,7 @@ public class NafathApiClient : ITransientDependency
     /// <returns>Current status from Nafath</returns>
     public async Task<NafathStatusResponse> CheckStatusAsync(string transactionId)
     {
-        var appId = await _settingProvider.GetOrNullAsync(NexusCoreSettings.Saudi.Nafath.AppId);
-        var appKey = await _settingProvider.GetOrNullAsync(NexusCoreSettings.Saudi.Nafath.AppKey);
-        var apiBaseUrl = await _settingProvider.GetOrNullAsync(NexusCoreSettings.Saudi.Nafath.ApiBaseUrl);
-
-        if (string.IsNullOrWhiteSpace(appId) || string.IsNullOrWhiteSpace(appKey) || string.IsNullOrWhiteSpace(apiBaseUrl))
-        {
-            throw new BusinessException("NexusCore:NafathNotConfigured")
-                .WithData("Message", "Nafath settings are not properly configured");
-        }
-
-        var client = _httpClientFactory.CreateClient("NafathApi");
-        client.BaseAddress = new Uri(apiBaseUrl);
-        client.DefaultRequestHeaders.Add("AppId", appId);
-        client.DefaultRequestHeaders.Add("AppKey", appKey);
+        var client = await CreateConfiguredClientAsync();
 
         _logger.LogInformation("Checking Nafath status for Transaction ID: {TransactionId}", transactionId);
 
@@ -143,6 +117,26 @@ public class NafathApiClient : ITransientDependency
             throw new BusinessException("NexusCore:NafathApiError")
                 .WithData("Message", "Invalid response format from Nafath API");
         }
+    }
+
+    private async Task<HttpClient> CreateConfiguredClientAsync()
+    {
+        var appId = await _settingProvider.GetOrNullAsync(NexusCoreSettings.Saudi.Nafath.AppId);
+        var appKey = await _settingProvider.GetOrNullAsync(NexusCoreSettings.Saudi.Nafath.AppKey);
+        var apiBaseUrl = await _settingProvider.GetOrNullAsync(NexusCoreSettings.Saudi.Nafath.ApiBaseUrl);
+
+        if (string.IsNullOrWhiteSpace(appId) || string.IsNullOrWhiteSpace(appKey) || string.IsNullOrWhiteSpace(apiBaseUrl))
+        {
+            throw new BusinessException("NexusCore:NafathNotConfigured")
+                .WithData("Message", "Nafath settings are not properly configured");
+        }
+
+        var client = _httpClientFactory.CreateClient("NafathApi");
+        client.BaseAddress = new Uri(apiBaseUrl);
+        client.DefaultRequestHeaders.Add("AppId", appId);
+        client.DefaultRequestHeaders.Add("AppKey", appKey);
+
+        return client;
     }
 }
 

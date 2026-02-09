@@ -61,10 +61,26 @@ public class ZatcaQrGenerator : ITransientDependency
     private void AppendTlv(MemoryStream stream, byte tag, string value)
     {
         var valueBytes = Encoding.UTF8.GetBytes(value);
-        var length = (byte)valueBytes.Length;
+        var length = valueBytes.Length;
 
         stream.WriteByte(tag);
-        stream.WriteByte(length);
+
+        if (length <= 127)
+        {
+            stream.WriteByte((byte)length);
+        }
+        else if (length <= 255)
+        {
+            stream.WriteByte(0x81);
+            stream.WriteByte((byte)length);
+        }
+        else
+        {
+            stream.WriteByte(0x82);
+            stream.WriteByte((byte)(length >> 8));
+            stream.WriteByte((byte)(length & 0xFF));
+        }
+
         stream.Write(valueBytes, 0, valueBytes.Length);
     }
 }

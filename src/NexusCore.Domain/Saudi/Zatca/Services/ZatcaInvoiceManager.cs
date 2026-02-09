@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Volo.Abp;
 using Volo.Abp.Domain.Services;
 
@@ -39,7 +38,7 @@ public class ZatcaInvoiceManager : DomainService
     /// <param name="certificatePassword">Password to decrypt the certificate private key</param>
     /// <returns>The updated invoice with QR code, XML content, and hash populated</returns>
     /// <exception cref="BusinessException">Thrown when validation fails or any step encounters an error</exception>
-    public async Task<ZatcaInvoice> PrepareInvoiceForSubmissionAsync(
+    public ZatcaInvoice PrepareInvoiceForSubmission(
         ZatcaInvoice invoice,
         ZatcaCertificate certificate,
         string certificatePassword = "")
@@ -100,7 +99,7 @@ public class ZatcaInvoiceManager : DomainService
         // Step 10: Update invoice status to validated
         invoice.Status = ZatcaInvoiceStatus.Validated;
 
-        return await Task.FromResult(invoice);
+        return invoice;
     }
 
     /// <summary>
@@ -176,21 +175,5 @@ public class ZatcaInvoiceManager : DomainService
         }
 
         currentInvoice.PreviousInvoiceHash = previousInvoice.InvoiceHash;
-    }
-}
-
-/// <summary>
-/// Result object for invoice validation.
-/// </summary>
-public class ZatcaInvoiceValidationResult
-{
-    public bool IsValid { get; set; }
-    public List<string> Errors { get; set; } = new List<string>();
-
-    public string GetErrorSummary()
-    {
-        return IsValid
-            ? "Validation passed."
-            : string.Join(Environment.NewLine, Errors);
     }
 }

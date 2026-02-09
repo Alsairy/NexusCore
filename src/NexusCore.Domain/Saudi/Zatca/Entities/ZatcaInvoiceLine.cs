@@ -42,8 +42,8 @@ public class ZatcaInvoiceLine : CreationAuditedEntity<Guid>, IMultiTenant
 
     public void CalculateAmounts()
     {
-        NetAmount = Quantity * UnitPrice;
-        VatAmount = NetAmount * TaxPercent / 100m;
-        TotalAmount = NetAmount + VatAmount;
+        NetAmount = Math.Round(Quantity * UnitPrice, 2);
+        VatAmount = Math.Round(NetAmount * TaxPercent / 100m, 2);
+        TotalAmount = Math.Round(NetAmount + VatAmount, 2);
     }
 }
